@@ -19,7 +19,7 @@ export class CdkStack extends cdk.Stack {
       runtime: lambda.Runtime.NODEJS_18_X,
       handler: 'lambda.handler',
       layers: [lambdaLayer],
-      code: lambda.Code.fromAsset('../dist/src'),
+      code: lambda.Code.fromAsset('../dist'),
       environment: {
         NODE_PATH: "$NODE_PATH:/opt"
       }
