@@ -2,7 +2,7 @@ import * as express from 'express';
 import { createServer, proxy, Response } from 'aws-serverless-express';
 import { Context } from "aws-lambda";
 import { Server } from 'http';
-import { createApp } from "./src/main";
+import { createApp } from "./main";
 
 const port = process.env.PORT || 4000;
 
