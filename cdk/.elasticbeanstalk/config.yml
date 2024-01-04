@@ -1,0 +1,19 @@
+branch-defaults:
+  default:
+    environment: sesychev-cart-api-env
+environment-defaults:
+  sesychev-cart-api-env:
+    branch: null
+    repository: null
+global:
+  application_name: sesychev-cart-api
+  default_ec2_keyname: null
+  default_platform: Node.js 18 running on 64bit Amazon Linux 2023
+  default_region: eu-west-1
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  sc: null
+  workspace_type: Application
