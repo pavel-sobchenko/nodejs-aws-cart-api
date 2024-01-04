@@ -67,25 +67,4 @@ export class CartStack extends cdk.Stack {
       description: 'Cart Service HTTP API Url',
     });
   }
-
-    // const lambdaLayer = new lambda.LayerVersion(this, 'NestLayer', {
-    //   code: lambda.Code.fromAsset(resolve(__dirname, '../node_modules')),
-    //   compatibleRuntimes: [lambda.Runtime.NODEJS_18_X]
-    // });
-    //
-    // const nestLambda = new lambda.Function(this, 'NestLambda', {
-    //   functionName: 'NestLambda',
-    //   runtime: lambda.Runtime.NODEJS_18_X,
-    //   handler: 'lambda.handler',
-    //   layers: [lambdaLayer],
-    //   code: lambda.Code.fromAsset('../dist'),
-    //   environment: {
-    //     NODE_PATH: "$NODE_PATH:/opt"
-    //   }
-    // });
-    //
-    // new apigateway.LambdaRestApi(this, 'NestApi', {
-    //   handler: nestLambda,
-    // });
-  //}
 }

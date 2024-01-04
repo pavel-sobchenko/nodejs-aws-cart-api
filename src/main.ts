@@ -42,15 +42,17 @@ export async function createApp(
 // });
 
 async function bootstrap(): Promise<Server> {
-  console.log('1111111111');
   const expressApp = express();
 
   const app = await createApp(expressApp);
-  app.enableCors();
+  //app.enableCors();
+  app.enableCors({
+    origin: (req, callback) => callback(null, true),
+  });
+  app.use(helmet());
   await app.init();
 
   await app.listen(port);
-  console.log('222222222');
   return createServer(expressApp);
 }
 
@@ -62,32 +64,3 @@ export async function handler(event: any, context: Context): Promise<Response> {
 
   return proxy(cachedServer, event, context, "PROMISE").promise;
 }
-
-
-
-
-// async function bootstrap():Promise<Handler> {
-//   const app = await NestFactory.create(AppModule);
-//
-//   app.enableCors({
-//     origin: (req, callback) => callback(null, true),
-//   });
-//   app.use(helmet());
-//
-//   await app.listen(port);
-//   await app.init();
-//   const expressApp = app.getHttpAdapter().getInstance();
-//   console.log('1111111111');
-//   return serverlessExpress({ app: expressApp });
-// }
-// bootstrap().then(() => {
-//   console.log('App is running on %s port', port);
-// });
-//
-// let server: Handler;
-//
-// export const handler: Handler = async (event: any, context: Context, callback: Callback) => {
-//   console.log('!!!!+++++!!!!Event: ', event);
-//   server = server ?? (await bootstrap());
-//     return server(event, context, callback);
-// };
